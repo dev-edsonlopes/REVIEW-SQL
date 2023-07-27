@@ -1,3 +1,6 @@
+--SELEÇÃO DO BANCO
+USE SQL_DB_1;
+
 --	criar tabela
 CREATE TABLE alunos (
 	-- Campos da Tabela 

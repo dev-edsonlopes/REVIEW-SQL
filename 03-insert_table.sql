@@ -7,15 +7,15 @@ USE SQL_DB_1
 INSERT INTO 
 	alunos (id_aluno, nome, data_nascimento, sexo, data_cadastro, login_cadastro)
 VALUES
-	  (2, 'Maria Santos', '1995-08-20', 'F', '25-07-2023 10:30:00', 'maria.santos'),
-	  (3, 'Pedro Oliveira', '1999-01-10', 'M', '25-07-2023 11:15:00', 'pedro.oliveira'),
-	  (4, 'Ana Souza', '2000-03-05', 'F', '25-07-2023 12:00:00', 'ana.souza'),
-	  (5, 'Lucas Pereira', '1997-11-02', 'M', '25-07-2023 13:45:00', 'lucas.pereira'),
-	  (6, 'Carla Mendes', '1996-06-18', 'F', '25-07-2023 14:30:00', 'carla.mendes'),
-	  (7, 'Bruno Almeida', '1994-09-22', 'M', '25-07-2023 15:00:00', 'bruno.almeida'),
-	  (8, 'Isabela Costa', '2001-07-12', 'F', '25-07-2023 15:30:00', 'isabela.costa'),
-	  (9, 'Rafaela Pereira', '1998-12-28', 'F', '25-07-2023 16:15:00', 'rafaela.pereira'),
-	  (10, 'Fernando Santos', '2002-02-14', 'M', '25-07-2023 17:00:00', 'fernando.santos');
+	  (2, 'Maria Santos', '1995-08-20', 'F', GETDATE(), 'maria.santos'),
+	  (3, 'Pedro Oliveira', '1999-01-10', 'M', GETDATE(), 'pedro.oliveira'),
+	  (4, 'Ana Souza', '2000-03-05', 'F', GETDATE(), 'ana.souza'),
+	  (5, 'Lucas Pereira', '1997-11-02', 'M', GETDATE(), 'lucas.pereira'),
+	  (6, 'Carla Mendes', '1996-06-18', 'F', GETDATE(), 'carla.mendes'),
+	  (7, 'Bruno Almeida', '1994-09-22', 'M', GETDATE(), 'bruno.almeida'),
+	  (8, 'Isabela Costa', '2001-07-12', 'F', GETDATE(), 'isabela.costa'),
+	  (9, 'Rafaela Pereira', '1998-12-28', 'F', GETDATE(), 'rafaela.pereira'),
+	  (10, 'Fernando Santos', '2002-02-14', 'M', GETDATE(), 'fernando.santos');
 
 
 SELECT * FROM alunos;
@@ -24,7 +24,7 @@ SELECT * FROM alunos;
 INSERT INTO 
 	situacao (id_situacao, situacao, data_cadastro, login_cadastro)
 VALUES
-	(1, 'Aprovado', '25-07-2023 10:00:00', 'joao.silva'),
+	(1, 'Em andamento', GETDATE(), 'joao.silva'),
 	(2, 'Reprovado', '25-07-2023 10:30:00', 'maria.santos'),
 	(3, 'Matriculado', '25-07-2023 12:15:00', 'pedro.oliveira'),
 	(4, 'Desistente', '25-07-2023 14:00:00', 'ana.souza'),
@@ -39,8 +39,8 @@ VALUES
 INSERT INTO 
 	cursos (id_curso, nome_curso, data_cadastro, login_cadastro)
 VALUES
-    (1, 'Matemática', '25-07-2023 09:00:00', 'disc.mat'),
-    (2, 'História', '25-07-2023 09:30:00', 'disc.his'),
+    (2, 'Lógica de Programação', GETDATE(), 'disc.LGP'),
+    (1, 'Banco de dados', GETDATE(), 'disc.bd'),
     (3, 'Ciência da Computação', '25-07-2023 11:15:00', 'disc.cien.comp'),
     (4, 'Biologia', '25-07-2023 13:30:00', 'disc.bio'),
     (5, 'Literatura Brasileira', '25-07-2023 15:45:00', 'disc.lit.bra'),
