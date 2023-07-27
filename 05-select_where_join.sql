@@ -104,10 +104,11 @@ SELECT
 	*
 FROM 
 	turmas AS t
-	INNER JOIN cursos AS c
+	RIGHT JOIN cursos AS c
 		ON c.id_curso = t.id_curso;
 
-		-- EXERCICIO trazer quantidades de alunos por turmas.
+
+-- EXERCICIO trazer quantidades de alunos por turmas.
 SELECT 
 	c.nome_curso,
 	COUNT([at].id_aluno) AS "quantidade de alunos"
@@ -116,6 +117,7 @@ FROM
 	INNER JOIN turmas AS t
 		ON t.id_turma = [at].id_turma
 	RIGHT JOIN cursos AS c
-		ON c.id_curso = t.id_curso
-GROUP BY
-	 c.nome_curso;
+			ON c.id_curso = t.id_curso
+	GROUP BY
+		 c.nome_curso;
+
