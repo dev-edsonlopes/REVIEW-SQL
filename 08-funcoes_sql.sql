@@ -36,11 +36,55 @@ ORDER BY
 	c.nome_curso;
 
 -- COUNT
+SELECT 
+	c.nome_curso,
+	COUNT(t.id_turma) AS "Total de Alunos",
+	SUM([at].valor - ([at].valor * [at].desconto)) AS "Valor total"
+FROM 
+	alunos_turmas AS [at]
+	INNER JOIN turmas AS t 
+		ON t.id_turma = [at].id_turma
+	INNER JOIN cursos AS c
+		ON c.id_curso = t.id_curso
+GROUP BY
+	c.nome_curso
 
 -- AVG
-
+SELECT 
+ c.nome_curso,
+ AVG([at].valor - ([at].valor * [at].desconto)) AS "Valor total"
+FROM 
+	alunos_turmas AS [at]
+	INNER JOIN turmas AS t 
+		ON t.id_turma = [at].id_turma
+	INNER JOIN cursos AS c
+		ON c.id_curso = t.id_curso
+GROUP BY
+	c.nome_curso
+	
 -- MAX
-
+SELECT 
+ c.nome_curso,
+ MAX([at].valor - ([at].valor * [at].desconto)) AS "Valor total"
+FROM 
+	alunos_turmas AS [at]
+	INNER JOIN turmas AS t 
+		ON t.id_turma = [at].id_turma
+	INNER JOIN cursos AS c
+		ON c.id_curso = t.id_curso
+GROUP BY
+	c.nome_curso
 -- MIN
+SELECT 
+ c.nome_curso,
+ MIN([at].valor - ([at].valor * [at].desconto)) AS "Valor total"
+FROM 
+	alunos_turmas AS [at]
+	INNER JOIN turmas AS t 
+		ON t.id_turma = [at].id_turma
+	INNER JOIN cursos AS c
+		ON c.id_curso = t.id_curso
+GROUP BY
+	c.nome_curso
 
 -- FUNÇÕES DE DATA
