@@ -125,3 +125,64 @@ SELECT DATEDIFF(DAY, GETDATE(), DATEADD(YEAR, 2, GETDATE())) AS intervalo;
 SELECT DATEDIFF(HOUR, GETDATE(), DATEADD(YEAR, 2, GETDATE())) AS intervalo;
 SELECT DATEDIFF(MINUTE, GETDATE(), DATEADD(YEAR, 2, GETDATE())) AS intervalo;
 SELECT DATEDIFF(SECOND, GETDATE(), DATEADD(YEAR, 2, GETDATE())) AS intervalo;
+
+-- FUNÇÃO TEXTO
+
+-- ASCII
+SELECT ASCII('A');
+SELECT ASCII('a');
+SELECT ASCII(9);
+
+--NCHAR
+SELECT NCHAR(57);
+
+--CHAR
+SELECT CHAR(97);
+
+--CHARINDEX
+SELECT CHARINDEX('o', 'edson');
+SELECT CHARINDEX('o', 'edson', 2);
+
+SELECT 
+	a.nome,
+	CHARINDEX('Santos', a.nome, 1)
+FROM alunos AS a
+WHERE 
+	CONVERT(INT, CHARINDEX('Santos', a.nome, 1)) > 0;
+
+SELECT 
+	a.nome,
+	CHARINDEX('Santos', a.nome, 1)
+FROM alunos AS a
+WHERE 
+	 CHARINDEX('Santos', a.nome, 1) <> 0;
+
+-- CONCAT
+
+SELECT CONCAT('Edson', ' ', 'Lopes', ' ', 'JR');
+
+SELECT 'Edson ' +  'Lopes ' + 'JR';
+
+SELECT 
+	CONCAT_WS(' | ', a.nome, c.nome_curso,
+			'INICIO: '+ TRIM(CONVERT(CHAR, t.data_inicio)) +
+			'PG: ' + CONVERT(CHAR, [at].valor))
+FROM 
+	alunos AS a
+	INNER JOIN alunos_turmas AS [at]
+		ON [at].id_aluno = a.id_aluno
+	INNER JOIN turmas AS t
+		ON t.id_turma = [at].id_turma
+	INNER JOIN cursos AS c
+		ON c.id_curso = t.id_curso;
+
+SELECT 
+	CONCAT(a.nome,' - ',c.nome_curso)
+FROM 
+	alunos AS a
+	INNER JOIN alunos_turmas AS [at]
+		ON [at].id_aluno = a.id_aluno
+	INNER JOIN turmas AS t
+		ON t.id_turma = [at].id_turma
+	INNER JOIN cursos AS c
+		ON c.id_curso = t.id_curso;
