@@ -164,9 +164,7 @@ SELECT CONCAT('Edson', ' ', 'Lopes', ' ', 'JR');
 SELECT 'Edson ' +  'Lopes ' + 'JR';
 
 SELECT 
-	CONCAT_WS(' | ', a.nome, c.nome_curso,
-			'INICIO: '+ TRIM(CONVERT(CHAR, t.data_inicio)) +
-			'PG: ' + CONVERT(CHAR, [at].valor))
+	CONCAT(a.nome,' - ',c.nome_curso)
 FROM 
 	alunos AS a
 	INNER JOIN alunos_turmas AS [at]
@@ -177,7 +175,9 @@ FROM
 		ON c.id_curso = t.id_curso;
 
 SELECT 
-	CONCAT(a.nome,' - ',c.nome_curso)
+	CONCAT_WS(' -- ', a.nome, c.nome_curso,
+			'  INICIO: '+ TRIM(CONVERT(CHAR, t.data_inicio)) +
+			'  PG: ' + CONVERT(CHAR, [at].valor)) AS DADOS
 FROM 
 	alunos AS a
 	INNER JOIN alunos_turmas AS [at]
@@ -186,3 +186,4 @@ FROM
 		ON t.id_turma = [at].id_turma
 	INNER JOIN cursos AS c
 		ON c.id_curso = t.id_curso;
+
