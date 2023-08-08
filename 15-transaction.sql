@@ -62,3 +62,20 @@ COMMIT TRANSACTION TR3;
 	PRINT 'Transaction: contador depois do COMMIT TR3 = ' + CAST(@@TRANCOUNT AS NVARCHAR(10));
 
 SELECT * FROM TabelaTeste;
+
+
+
+BEGIN TRANSACTION;
+
+	UPDATE alunos
+		SET sexo = LOWER(sexo)
+	WHERE id_aluno = 4;
+	select * from alunos;
+
+-- SALVAR ALTERAÇÃO
+COMMIT;
+select * from alunos;
+
+-- REFAZER ALTERAÇÃO
+ROLLBACK;
+select * from alunos;
