@@ -60,3 +60,5 @@ COMMIT TRANSACTION TR1;
 	PRINT 'Transaction: contador depois do COMMIT TR1 = ' + CAST(@@TRANCOUNT AS NVARCHAR(10));
 COMMIT TRANSACTION TR3;
 	PRINT 'Transaction: contador depois do COMMIT TR3 = ' + CAST(@@TRANCOUNT AS NVARCHAR(10));
+
+SELECT * FROM TabelaTeste;
